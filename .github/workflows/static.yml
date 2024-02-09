@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <style>
+        .question {
+            color: red;
+        }
+        .heart {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            color: red;
+            font-size: 30vw; /* Tamaño del corazón */
+        }
+    </style>
+</head>
+<body>
+    <h1>Valentine's Day</h1>
+    <form id="valentine-form">
+        <label class="question" for="valentine-response">Will you be my Valentine?</label><br>
+        <input type="radio" id="yes" name="valentine-response" value="yes">
+        <label for="yes">Yes</label><br>
+        <input type="radio" id="no" name="valentine-response" value="no">
+        <label for="no">No</label><br><br>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <span id="heart" class="heart">❤️</span>
+
+    <script>
+        function submitForm() {
+            var response = document.querySelector('input[name="valentine-response"]:checked').value;
+            if (response === "yes") {
+                // Mostrar corazón del tamaño de la pantalla
+                document.getElementById("heart").style.display = "inline";
+                // Ocultar el formulario y la pregunta
+                document.getElementById("valentine-form").style.display = "none";
+                document.querySelector('.question').style.display = "none";
+            } else {
+                alert("Maybe next time!");
+            }
+        }
+    </script>
+</body>
